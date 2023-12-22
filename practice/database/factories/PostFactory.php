@@ -15,9 +15,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
+            'user_id' => 12,
+            //'user_id' => \App\Models\User::inRandomOrder()->first()->id,
            // 'user_id' => $this->faker->unique()->numberBetween(100,999),
-            'category_id' => $this->faker->numberBetween(1,9),
+            'category_id' => 1,
             'slug' => $this->faker->slug,
             'title' => $this->faker->sentence,
             'thumbnail' => $this->faker->imageUrl(640, 480),

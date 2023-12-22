@@ -11,11 +11,19 @@ class SessionController extends Controller
     public function destroy()
     {
         auth()->logout();
-        return redirect("/register");
+        //return "user logged out successfullly";
+        return redirect("/login");
     }
 
     public function view()
     {
+        if (auth()->check()) {
+
+            $user_id = auth()->user()->user_id;
+            if ($user_id == session('user_id')) {
+                @dd("YOu Are Already Logged In");
+            }
+        }
         return view("login.create");
     }
 
@@ -30,9 +38,16 @@ class SessionController extends Controller
 
         if (@auth()->attempt($attributes)) {
             session()->regenerate();
-            return redirect("/home");
+            $user_id = auth()->user()->user_id;
+            session(['user_id' => $user_id]);
+
+            if(@auth()->user()->role == 'admin'){
+                return redirect("/admin-home");
+            }
+            return redirect("/posts");
         }else {
             return back()->withInput()->withErrors(['password' => 'Invalid password.']);
         }
     }
+
 }

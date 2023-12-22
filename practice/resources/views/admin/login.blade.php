@@ -3,7 +3,7 @@
         <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl">Login!</h1>
 
-            <form method="POST" action="/login" class="mt-10">
+            <form method="POST" class="mt-10">
                 @csrf       {{--cross site request forgery --}}
 
 
@@ -51,18 +51,7 @@
                     >
                         Submit
                     </button>
-
                 </div>
-
-                <div class="mb-6 text-center">
-                    <p class="text-gray-600">Not Ate Almonds Everyday! No Worries... <a href="/forgot-password" class="text-blue-500">Forget Password</a></p>
-                </div>
-
-                <div class="mb-6 text-center">
-                    <p class="text-gray-600">New User? <a href="/register" class="text-blue-500">Register Here</a></p>
-                </div>
-
-
             </form>
         </main>
     </section>

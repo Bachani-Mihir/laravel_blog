@@ -69,12 +69,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel_BLOG README</title>
 </head>
 <body>
     <header>
         <h1>Laravel_BLOG</h1>
-        <p>Project README</p>
     </header>
     <section>
         <h2>Project Description</h2>

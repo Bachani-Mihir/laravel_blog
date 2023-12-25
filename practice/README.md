@@ -69,55 +69,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel_BLOG README</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            color: #333;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: #3498db;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #3498db;
-        }
-        h3 {
-            color: #333;
-        }
-        p, pre, code {
-            margin-bottom: 15px;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            overflow: auto;
-            border: 1px solid #ddd;
-        }
-        code {
-            color: #c7254e;
-            background-color: #f9f2f4;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        a {
-            color: #3498db;
-        }
-    </style>
-
 </head>
 <body>
     <header>
         <h1>Laravel_BLOG</h1>
-        <p>Project README</p>
     </header>
     <section>
         <h2>Project Description</h2>
@@ -125,7 +80,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     </section>
     <section>
         <h2>Installation</h2>
-        <pre><code>git clone https://github.com/your-username/Laravel_BLOG.git
+        <pre><code>git clone [https://github.com/Bachani-Mihir/laravel_blog/tree/master/practice]
 
 cd Laravel_BLOG
 composer install

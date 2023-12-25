@@ -80,7 +80,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     </section>
     <section>
         <h2>Installation</h2>
-        <pre><code>git clone https://github.com/your-username/Laravel_BLOG.git
+        <pre><code>git clone [https://github.com/Bachani-Mihir/laravel_blog/tree/master/practice]
 
 cd Laravel_BLOG
 composer install

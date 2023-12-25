@@ -12,9 +12,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run(){
-    /*     \App\Models\category::factory(3)->create();
-        \App\Models\Comments::factory(10)->create();
+        \App\Models\category::factory(3)->create();
         User::factory(10)->create();
-        \App\Models\Post::factory(10)->create(); */
+        \App\Models\Post::factory(10)->create();
     }
 }

@@ -12,15 +12,6 @@ class AdminPostController extends Controller
     public function create(){
         return view("admin/posts.create");
     }
-    /* public function show_admin_posts() {
-        $user_id = session("user_id");
-
-        $posts = Post::where('user_id', $user_id)->get();
-
-        return view('components.show-admin-posts', [
-        'posts' => $posts
-        ]);
-    } */
 
     public function index(){
         $user_id = session('user_id');
@@ -41,7 +32,6 @@ class AdminPostController extends Controller
     ]);
     $attributes['user_id'] = session('user_id');
         $post = Post::create($attributes);
-        //auth()->login($user);
         return redirect('/admin/posts');
     }
 
@@ -56,18 +46,15 @@ class AdminPostController extends Controller
 
     }
 
-    public function destroy($post_id)
-    {
+    public function destroy($post_id){
         $post = Post::where('id', $post_id)->delete();
         return redirect('/admin/posts/');
     }
 
-    public function view()
-    {
+    public function view(){
         $user_id = session('user_id');
         $posts = POST::where('user_id', $user_id)->get();
         $categories = Category::all();
-
         return view('components.admin-home', ['posts' => $posts, 'categories' => $categories]);
     }
 }

@@ -10,14 +10,13 @@ use Illuminate\Queue\SerializesModels;
 class ForgotPassword extends Mailable
 {
     use Queueable, SerializesModels;
-    public $reset_link;
+    public $reset_link = [];
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($reset_link)
-    {
+    public function __construct($reset_link){
         $this->reset_link = $reset_link;
     }
 
@@ -26,8 +25,7 @@ class ForgotPassword extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
-        return $this->view('emails.forget_password',['reset_link' => $this->reset_link])->subject('Reset Your Password');;
+    public function build(){
+        return $this->view('emails.forget_password',['reset_link' => $this->reset_link])->subject('Reset Your Password');
     }
 }

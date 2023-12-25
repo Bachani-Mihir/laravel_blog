@@ -11,24 +11,21 @@ class AdminSessionController extends Controller
     public function view(){
         return view("admin.login");
     }
-    public function valid(){
+    public function valid(){                            // Check If Admin Exists
         $attributes = request()->validate([
             "email" => "required|exists:users",
             "password" => "required"
         ],[
             'email.exists' => 'Entered Email Is Not Registered. So Please Register First!',
         ]);
-        if (@auth()->attempt($attributes)) {
 
+        if (@auth()->attempt($attributes)){     // When Admin Successfully Logged In
             session()->regenerate();
             $user = User::where('email', $attributes['email'])->first();
             session(['user_id' => $user->user_id]);
             return redirect("/admin-home");
-            //return view("admin.login");
         }else {
             return back()->withInput()->withErrors(['password' => 'Invalid password.']);
         }
     }
-
-
 }

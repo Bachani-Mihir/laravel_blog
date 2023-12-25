@@ -27,7 +27,7 @@
 
                     @guest
                         <a href="/login" class="text-xs font-bold uppercase">Login</a>
-                        <a href="/posts" class="text-xs font-bold uppercase">Home Page</a>
+                        <a href="/home" class="text-xs font-bold uppercase">Home Page</a>
                     @endguest
 
                     @if(auth()->check())

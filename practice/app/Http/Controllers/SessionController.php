@@ -8,25 +8,20 @@ use Illuminate\Validation\Rules\Exists;
 
 class SessionController extends Controller
 {
-    public function destroy()
-    {
+    public function destroy(){
         auth()->logout();
-        //return "user logged out successfullly";
         return redirect("/login");
     }
-
-    public function view()
-    {
+    public function view(){
         if (auth()->check()) {
-
             $user_id = auth()->user()->user_id;
-            if ($user_id == session('user_id')) {
+
+            if ($user_id == session('user_id')){
                 @dd("YOu Are Already Logged In");
             }
         }
         return view("login.create");
     }
-
     public function valid()
     {
         $attributes = request()->validate([
@@ -36,7 +31,7 @@ class SessionController extends Controller
             'email.exists' => 'Entered Email Is Not Registered. So Please Register First!',
         ]);
 
-        if (@auth()->attempt($attributes)) {
+        if (@auth()->attempt($attributes)){
             session()->regenerate();
             $user_id = auth()->user()->user_id;
             session(['user_id' => $user_id]);

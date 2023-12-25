@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-6 text-center">
-                    <p class="text-gray-600">New User? <a href="/register" class="text-blue-500">Register Here</a></p>
+                    <p class="text-gray-600">New User? <a href="/" class="text-blue-500">Register Here</a></p>
                 </div>
 
 

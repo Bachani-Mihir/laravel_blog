@@ -19,9 +19,8 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
         ]);
 
-        // return $values;
-        $user = User::create($attributes);
-        auth()->login($user);
+        $user = User::create($attributes);      // Creating New User
+        auth()->login($user);                   // User Got Logged In
         return redirect('/home');
     }
 

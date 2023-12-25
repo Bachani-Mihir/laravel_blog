@@ -15,13 +15,13 @@ class AdminMiddleware
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle($request, Closure $next)
-{
-      if (auth()->check() && auth()->user()->role === 'admin') {
+    {
+      if(auth()->check() && auth()->user()->role === 'admin') {
         return $next($request);
     }
-        // If not an admin, redirect or respond accordingly
 
-    abort(403, 'Unauthorized action.');
+    // If not an admin, redirect or respond accordingly
+    abort(403, 'Unauthorized User.');
 }
 
 }

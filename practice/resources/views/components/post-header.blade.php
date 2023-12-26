@@ -38,9 +38,7 @@
             <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
                 <option value="category" disabled selected>Other Filters
                 </option>
-                <option value="foo">Foo
-                </option>
-                <option value="bar">Bar
+                <option value="latest">latest
                 </option>
             </select>
 

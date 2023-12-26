@@ -64,16 +64,9 @@ Route::post('/update-password', [UserController::class, 'update_password']);
 
 Route::get('/home', [PostController::class,'view']);
 
-Route::get('/posts', [PostController::class, 'view']);
+Route::get('/posts', [PostController::class, 'filter_posts']);
 
 Route::get('/posts/{slug}', [PostController::class, 'show_post']);
-
-Route::get('/category/{category_id}',[PostController::class, 'show_post_by_category']);
-
-Route::get('author/{author_id}/category/{category_id}',[PostController::class, 'show_post_by_author_category']);
-
-Route::get('/author/{author_id}',[PostController::class,'filter_posts_by_author']);
-
 
 /* Admin Session Controller Routes */
 

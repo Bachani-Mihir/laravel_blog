@@ -17,7 +17,9 @@ class SessionController extends Controller
             $user_id = auth()->user()->user_id;
 
             if ($user_id == session('user_id')){
-                @dd("YOu Are Already Logged In");
+                request()->session()->regenerate();
+                return redirect("/home");
+                //@dd("YOu Are Already Logged In");
             }
         }
         return view("login.create");

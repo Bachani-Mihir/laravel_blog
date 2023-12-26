@@ -52,8 +52,25 @@ class AdminPostController extends Controller
     }
 
     public function view(){
+        $category_id = request('category_id');
+        $latest = request('latest');
         $user_id = session('user_id');
-        $posts = POST::where('user_id', $user_id)->get();
+
+        if(!empty($category_id)){
+            if($latest == true){
+                $posts = POST::where('user_id', $user_id)->where('category_id',$category_id)
+                ->orderBy('published_at', 'desc')->get();
+            }else{
+                $posts = POST::where('user_id', $user_id)
+                ->where('category_id',$category_id)->get();
+            }
+        }
+        else if(!empty($latest)){
+            $posts = POST::where('user_id', $user_id)->orderBy('published_at', 'desc')->get();
+        }
+        else{
+                    $posts = POST::where('user_id', $user_id)->get();
+        }
         $categories = Category::all();
         return view('components.admin-home', ['posts' => $posts, 'categories' => $categories]);
     }

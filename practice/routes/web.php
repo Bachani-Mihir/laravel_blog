@@ -68,6 +68,9 @@ Route::get('/posts', [PostController::class, 'filter_posts']);
 
 Route::get('/posts/{slug}', [PostController::class, 'show_post']);
 
+
+Route::middleware(['admin'])->group(function () {
+
 /* Admin Session Controller Routes */
 
 Route::get('/admin/login',[AdminSessionController::class,'view']);
@@ -77,21 +80,22 @@ Route::post('/admin/login',[AdminSessionController::class,'valid']);
 
 /* Admin Post Controller Routes */
 
-Route::get('/admin/posts/create',[AdminPostController::class,'create'] );
 
-Route::post('/admin/posts/create',[AdminPostController::class,'store']);
+    Route::get('/admin/posts/create', [AdminPostController::class, 'create']);
 
-Route::get('/admin/posts/{post_id}/edit',[AdminPostController::class,'edit_post']);
+    Route::post('/admin/posts/create', [AdminPostController::class, 'store']);
 
-Route::patch('/admin/posts/{post_id}',[AdminPostController::class,'update']);
+    Route::get('/admin/posts/{post_id}/edit', [AdminPostController::class, 'edit_post']);
 
-Route::delete('/admin/posts/{post_id}',[AdminPostController::class,'destroy']);
+    Route::patch('/admin/posts/{post_id}', [AdminPostController::class, 'update']);
 
-Route::get('/admin/posts',[AdminPostController::class,'index'])->middleware('admin');
+    Route::delete('/admin/posts/{post_id}', [AdminPostController::class, 'destroy']);
 
-Route::post('/admin/posts',[AdminPostController::class,'store'])->middleware('admin');
+    Route::get('/admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
 
-Route::get('/admin-home',[AdminPostController::class,'view'])->middleware('admin');
+    Route::post('/admin/posts', [AdminPostController::class, 'store'])->middleware('admin');
 
+    Route::get('/admin-home', [AdminPostController::class, 'view'])->middleware('admin');
 
+});
 

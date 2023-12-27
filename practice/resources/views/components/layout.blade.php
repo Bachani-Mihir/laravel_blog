@@ -68,26 +68,3 @@
 
     {{-- javascript code to load page as per the category selected. --}}
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var categorySelect = document.getElementById('categorySelect');
-
-        if (categorySelect) {
-            categorySelect.addEventListener('change', function() {
-                // Get the selected option value
-                var selectedOptionValue = categorySelect.value;
-
-                // Your logic based on the selected value
-                if (selectedOptionValue === 'category') {
-                    // Do something when 'Category' is selected
-                    console.log('Category option selected');
-                } else {
-                    // Do something else based on the selected value
-                    console.log('Selected category ID:', selectedOptionValue);
-                }
-            });
-        }else{
-            @dd("hie");
-        }
-    });
-</script>

@@ -10,7 +10,9 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    public function post(){
+
+    public function post()
+    {
         return $this->hasMany(Post::class);           // defines the relationship
     }
 }

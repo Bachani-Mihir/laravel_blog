@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class password_resets extends Model
 {
+    //public $timestamps = false;
+
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     use HasFactory;
 }

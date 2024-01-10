@@ -15,33 +15,32 @@
 
             <div class="mt-8 md:mt-0 flex items-center space-x-4">
 
-                    @admin
+                    @can('IsAdmin')
                             <x-dropdown-item
-                                href="/admin/posts"
+                                href="{{ url('api/admin/posts') }}"
                             >
                                 Dashboard
                             </x-dropdown-item>
 
-                    @endadmin
-
+                    @endcan
 
                     @guest
-                        <a href="/login" class="text-xs font-bold uppercase">Login</a>
-                        <a href="/home" class="text-xs font-bold uppercase">Home Page</a>
+                        <a href="{{ url('/login') }}" class="text-xs font-bold uppercase">Login</a>
+                        <a href="{{ url('/api/home') }}" class="text-xs font-bold uppercase">Home Page</a>
                     @endguest
 
-                    @if(auth()->check())
-                        @admin
-                            <a href="/admin-home" class="text-xs font-bold uppercase">Home Page</a>
-                        @endadmin
+                    @if(auth()->guard('sanctum')->check())
+                        @can('IsAdmin')
+                            <a href="{{ url('api/admin/admin-home') }}" class="text-xs font-bold uppercase">Home Page</a>
+                        @endcan
 
-                        @user
-                            <a href="/posts" class="text-xs font-bold uppercase">Home Page</a>
-                        @enduser
+                        @can('IsUser')
+                            <a href="{{ url('api/home') }}" class="text-xs font-bold uppercase">Home Page</a>
+                        @endcan
 
                         <p class="text-sm">Welcome, {{ auth()->user()->email }}</p>
                         <p class="text-sm">
-                            <a href="/logout"> Logout </a>
+                            <button id='logout-button'> Logout </button>
                         </p>
 
                     @endif
@@ -54,7 +53,7 @@
             </div>
         </nav>
 
-@if(auth()->check())
+@if(auth()->check())                {{-- without login user won't have filteration access. --}}
     <x-post-header />
 @endif
 
@@ -67,4 +66,36 @@
 
 
     {{-- javascript code to load page as per the category selected. --}}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+const logoutButton = document.getElementById('logout-button');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', async () => {
+            try {
+                // Make a request to the logout endpoint
+                await axios.post('/api/logout');
+                // Remove the token from localStorage
+                localStorage.removeItem('token');
+                // Remove the token from headers
+                axios.defaults.headers.common['Authorization'] = null;
+                // Redirect to the login page or home page
+                window.location.href ='/login'; // Replace with your login route
+            } catch (error) {
+            // Check if the error has a response
+            if (error.response) {
+                // The request was made, but the server responded with a non-2xx status
+                console.error('Logout failed with status:', error.response.status);
+                console.error('Response data:', error.response.data);
+            } else if (error.request) {
+                // The request was made, but no response was received
+                console.error('No response received from the server');
+            } else {
+                // Something happened in setting up the request that triggered an error
+                console.error('Error setting up the request:', error.message);
+            }
+        }
+        });
+    }
+</script>
 

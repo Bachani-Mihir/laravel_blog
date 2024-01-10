@@ -3,7 +3,7 @@
         <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl">Change Password</h1>
 
-            <form method="POST" action="/update-password" class="mt-10">
+            <form method=POST action='/api/update-password' class="mt-10" id='change-password-form'>
                 @csrf {{--  Cross-site request forgery --}}
                 <div class="mb-6">
                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="new_password">New Password</label>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">Submit</button>
+                    <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" id='change-password-button'>Submit</button>
                 </div>
 
                 <div class="mb-6 text-center">

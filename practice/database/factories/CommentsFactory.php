@@ -1,8 +1,7 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Post;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentsFactory extends Factory
@@ -15,8 +14,8 @@ class CommentsFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => $this->faker->numberBetween(1,9),
-            'user_id' => $this->faker->numberBetween(1,9),
+            'post_id' => $this->faker->numberBetween(1, 9),
+            'user_id' => $this->faker->numberBetween(1, 9),
             'body' => $this->faker->paragraph,
             'created_at' => now(),
             'updated_at' => now(),

@@ -29,11 +29,9 @@ Route::post('/update-password', [UserController::class, 'update_password'])->nam
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth:sanctum')->name('user.logout');
 
 Route::middleware(['auth:sanctum', 'admin'])->prefix('admin')->group(function () {
+
+    Route::Resource('posts', AdminPostController::class);
     Route::get('/admin-home', [AdminPostController::class, 'view']);
-    Route::get('/posts', [AdminPostController::class, 'index']);
-    Route::post('/posts/create', [AdminPostController::class, 'store'])->name('admin.create');
-    Route::patch('/posts/{post_id}', [AdminPostController::class, 'update'])->name('admin.update_post');
-    Route::delete('/posts/{post_id}', [AdminPostController::class, 'destroy'])->name('admin.delete_post');
 });
 
 Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware(['admin', 'web']);

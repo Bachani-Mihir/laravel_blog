@@ -39,7 +39,7 @@ class AdminPostController extends Controller
         return redirect('api/admin/posts');
     }
 
-    public function edit_post($post_id)
+    public function edit($post_id)
     {
         $post = POST::where('id', $post_id)->first();
 

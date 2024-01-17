@@ -17,7 +17,7 @@
 
                     @can('IsAdmin')
                             <x-dropdown-item
-                                href="{{ url('api/admin/posts') }}"
+                                href="{{ url('api/admin/posts/') }}"
                             >
                                 Dashboard
                             </x-dropdown-item>

@@ -19,7 +19,6 @@ class PostController extends Controller
 
     public function filter_posts()
     {
-
         $author_id = request('author_id');
         $category_id = request('category_id');
         $latest = request('latest');            // Stores Boolean Value (True/False)

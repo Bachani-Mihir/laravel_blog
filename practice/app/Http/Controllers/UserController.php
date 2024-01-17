@@ -93,9 +93,4 @@ class UserController extends Controller
             return response()->json(['message' => 'failed']);
         }
     }
-
-    public function php_info()
-    {
-        return phpinfo();
-    }
 }

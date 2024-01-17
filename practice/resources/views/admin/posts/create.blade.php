@@ -10,7 +10,7 @@
     @endif
 
     <x-setting heading="Publish New Post">
-        <form method="POST" action="{{ url('api/admin/posts/create') }}" name="create_post" enctype="multipart/form-data">
+        <form method="POST" action="{{ url('api/admin/posts') }}" name="create_post" enctype="multipart/form-data">
             @csrf
             <x-form.input name="title" required />
             <x-form.input name="slug" required />

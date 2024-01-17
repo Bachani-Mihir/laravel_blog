@@ -18,12 +18,12 @@ class User extends Authenticatable
      */
     // if we are using $fillable then all fields should be mentioned.And if guarded then only hidden field like id or empty should only be provided then also it will work.
 
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'user_id',
-    //     'password',
-    // ];
+    /* protected $fillable = [
+        'name',
+        'email',
+        'user_id',
+        'password',
+    ]; */
 
     protected $guarded = ['id'];
 

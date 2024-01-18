@@ -13,11 +13,11 @@ class Post extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);           // defines the relationship
+        return $this->belongsTo(Category::class,'category_id');           // defines the relationship
     }
 
     public function author()
     {
-        return $this->belongsTo(User::class, 'user_id');           // defines the relationship
+        return $this->belongsTo(User::class,'user_id');           // defines the relationship
     }
 }

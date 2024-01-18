@@ -11,9 +11,9 @@
         <div class="mt-8 flex flex-col justify-between">
             <header>
                 <div class="space-x-2">
-                    <a href="{{ url('/api/posts?category_id='.$post->category->id) }}"
+                    {{-- <a href="{{ url('/api/posts?category_id='.$post->category->id) }}"
                         class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                        style="font-size: 10px">{{$post->category->name}}</a>
+                        style="font-size: 10px">{{$post->category->name}}</a> --}}
                     <a href="#"
                         class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
                         style="font-size: 10px">Updates</a>

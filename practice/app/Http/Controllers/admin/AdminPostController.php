@@ -78,7 +78,7 @@ class AdminPostController extends Controller
     {
         $category_id = request('category_id');
         $latest = request('latest');
-        $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->id;
 
         if (! empty($category_id)) {
             if ($latest == true) {
